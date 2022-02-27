@@ -20,10 +20,14 @@ public class SocketScheduler {
     @Scheduled(fixedDelay = 5000)
     public void aleatorio() {
         System.out.println("dentro del scheduled");
-        Numeros numeros = new Numeros(DataFake.getFAKER().random().nextInt(0, 3256));
+        Numeros numeros = new Numeros(DataFake.getFAKER().random().nextInt(1000, 3256));
         System.out.println(numeros.getNumero());
 
         webSocket.convertAndSend("/numero/aleatorio", numeros);
+        Numeros numeros2 = new Numeros(DataFake.getFAKER().random().nextInt(0, 600));
+        System.out.println(numeros2.getNumero());
+
+        webSocket.convertAndSend("/numero/aleatorio2", numeros2);
     }
 
 }

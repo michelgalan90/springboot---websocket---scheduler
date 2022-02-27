@@ -24,7 +24,11 @@ function connect() {
         });
 
         stompClient.subscribe("/numero/aleatorio", function(numero) {
-            console.log(JSON.parse(numero.body).numero);
+            console.log(`Numero1: ${JSON.parse(numero.body).numero}`);
+        });
+
+        stompClient.subscribe("/numero/aleatorio2", function(numero2) {
+            console.log(`Numero2: ${JSON.parse(numero2.body).numero}`);
         });
     });
 }
